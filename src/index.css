@@ -91,6 +91,20 @@ float: left;
     z-index: 4;
 }
 
+.grid-header-top {
+    top: 0 !important;  
+    bottom: auto !important; 
+    background-color:   #2c2c2f96;
+    position: absolute;
+    color: #fff;          
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+    padding: 7px;
+    bottom: 4px;            
+    z-index: 4;
+}
+
 .grid-icon {        
     display: block;   
     overflow: hidden;
@@ -115,6 +129,7 @@ float: left;
     overflow: hidden;
     line-height: 20px;
 }
+
 .grid-body {
     position: absolute;
     color: #fff;
@@ -153,6 +168,14 @@ float: left;
     position: relative;  
 }
 
+.grid-options-icons-bottom {
+    height: 48px;
+    opacity: 0;
+    /* background-color: #00BCD4; */
+    position: absolute;
+    bottom: 0;
+}
+
 .grid-box:hover .grid-options {
     opacity: 0.7;
     color: #fff;
@@ -161,7 +184,7 @@ float: left;
 }
 
 .edit-icon {
-    background-image: url('./images/edit.png');
+    background-image: url('/edit.png');
     width: 16px;
     height: 16px;   
     position: relative;
@@ -171,7 +194,7 @@ float: left;
 }
 
 .print-icon {
-    background-image: url('./images/printer.png');
+    background-image: url('/printer.png');
     width: 16px;
     height: 16px;   
     position: relative;
@@ -181,7 +204,7 @@ float: left;
 }
 
 .copy-icon {
-    background-image: url('./images/copy.png');
+    background-image: url('/copy.png');
     width: 16px;
     height: 16px;   
     position: relative;
@@ -191,7 +214,7 @@ float: left;
 }
 
 .delete-icon {
-    background-image: url('./images/delete.png');
+    background-image: url('/delete.png');
     width: 16px;
     height: 16px;   
     position: relative;
@@ -201,6 +224,10 @@ float: left;
 }
 
 .grid-box:hover .grid-options-icons {
+    opacity: 1;    
+}
+
+.grid-box:hover .grid-options-icons-bottom {
     opacity: 1;    
 }
 

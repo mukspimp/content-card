@@ -32,8 +32,13 @@ class HeaderDescription extends React.Component {
 
 class CardHeader extends React.Component {
     render() {
+        let headerGridClass = 'grid-header';
+        if(this.props.headerOption.position === 'top') {
+            headerGridClass = 'grid-header-top';
+        } 
+
         return (
-            <div className="grid-header">
+            <div className={headerGridClass}>
                 <HeaderIcon icon={this.props.header.icon}  />
                 <div>
                     <HeaderTitle title={this.props.header.title} />
@@ -58,9 +63,13 @@ class Editor extends React.Component {
         const isPrint = this.props.editOptions.print;
         const isEdit = this.props.editOptions.edit;
         const isCopy = this.props.editOptions.copy;
+        let positionClass = 'grid-options-icons';
+        if(this.props.editOptions.position === 'bottom') {
+            positionClass = 'grid-options-icons-bottom';
+        }
         return (
             <div className="grid-options">
-                <div className="grid-options-icons">
+                <div className={positionClass}>
                     { isDelete === true &&
                         <EditorOption value='delete-icon' />
                     }
@@ -88,7 +97,7 @@ class ContentCard extends React.Component {
                     <div className="abs-content">
                     </div>
                     <Editor editOptions={this.props.card.editorOptions} />
-                    <CardHeader header={this.props.card.headerOptions} />                   
+                    <CardHeader header={this.props.card.headerData} headerOption={this.props.card.headerOptions} />                   
                 </div>
             </div>
         );
@@ -102,61 +111,77 @@ class ContentCards extends React.Component {
             cards: [{
                 backgroundImg: '/insurance.jpeg',
                 editorOptions: {
+                    position: 'bottom',
                     copy: true,
                     edit: true,
                     print: true,
                     delete: true
                 },
-                header: true,
                 headerOptions: {
+                    header: true,
+                    position: 'top',
+                },
+                headerData: {
                     icon: '/car.png',
-                    title: 'Car insurance1',
-                    description: '1.We know lots of factors go into calculating insurance costs...'
+                    title: 'Car insurance',
+                    description: 'We know lots of factors go into calculating insurance costs...'
                 }
             },
             {
                 backgroundImg: '/self-drive.jpeg',
                 editorOptions: {
+                    position: 'bottom',
                     copy: true,
                     edit: true,
                     print: true,
                     delete: true
                 },
-                header: true,
                 headerOptions: {
+                    header: true,
+                    position: 'top',
+                },
+                headerData: {
                     icon: 'free-delivery.png',
-                    title: 'Car insurance2',
-                    description: '2.We know lots of factors go into calculating insurance costs...'
+                    title: 'Self-driving vehicles are here',
+                    description: 'Fully self-driving vehicles can transform the way we get around...'
                 }
             },
             {
                 backgroundImg: '/advertise.jpeg',
                 editorOptions: {
+                    position: 'top',
                     copy: true,
                     edit: true,
                     print: true,
                     delete: true
                 },
-                header: true,
                 headerOptions: {
+                    header: true,
+                    position: 'bottom',
+                },
+                headerData: {
                     icon: 'bicycle.png',
-                    title: 'Car insurance3',
-                    description: '3.We know lots of factors go into calculating insurance costs...'
+                    title: 'A cost-effective advertising',
+                    description: 'Many businesses are now realizing the potentials of advertising...'
                 }
             },
             {
                 backgroundImg: '/com-truck.jpeg',
                 editorOptions: {
+                    position: 'top',
                     copy: true,
                     edit: true,
                     print: true,
                     delete: false
                 },
-                header: true,
                 headerOptions: {
+                    header: true,
+                    position: 'bottom',
+                },
+                headerData: {
                     icon: 'cargo-truck.png',
-                    title: 'Car insurance4',
-                    description: '4.We know lots of factors go into calculating insurance costs...'
+                    title: 'Commerical Vehical Hiring',
+                    description: 'Online commercial vehicle hiring portal based on bidding system...'
                 }
             }]
         }
