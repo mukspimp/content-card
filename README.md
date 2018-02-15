@@ -23,53 +23,51 @@ Createthe cards array as
     }];
 
 Cards argument details below
-    1. Card background image
+   
+   1. Card background image
         
-        backgroundImg: 'images/insurance.jpeg'
-        
+            backgroundImg: 'images/insurance.jpeg'
+
         background image for card
 
-
-    2. Editor Options
+   2. Editor Options
 
         copy, edit, print and delete options can be display as per the user access
 
-        editorOptions: {
-            position: 'bottom',
-            copy: true, // 'false' will not display copy option
-            edit: true, // 'false' will not display edit option
-            print: true, // 'false' will not display print option
-            delete: true // 'false' will not display delete option
-        }
+            editorOptions: {
+                position: 'bottom',
+                copy: true, // 'false' will not display copy option
+                edit: true, // 'false' will not display edit option
+                print: true, // 'false' will not display print option
+                delete: true // 'false' will not display delete option
+            }
 
         Change the position of editor options by changing position 
 
-        editorOptions: {
-            position: 'bottom' // 'top'  will move the option to top of card
-        }
+            editorOptions: {
+                position: 'bottom' // 'top'  will move the option to top of card
+            }
 
-    3. Header Options 
+   3. Header Options 
         
         You can hide header by setting header to false (header: false)
         You can change the position of header 
             
-        headerOptions: {
-            header: true, // 'false' to hide header by setting header
-            position: 'top', // 'bottom' for header at the bottom of card
-        },
+            headerOptions: {
+                header: true, // 'false' to hide header by setting header
+                position: 'top', // 'bottom' for header at the bottom of card
+            }
 
-    4. Header Data 
+   4. Header Data 
 
-        headerData: { 
-            icon: 'images/car.png', // path to header icon image
-            title: 'Car insurance', // Header text
-            description: 'We know lots of factors go into calculating insurance costs...' // Header description
-        }
+            headerData: { 
+                icon: 'images/car.png', // path to header icon image
+                title: 'Car insurance', // Header text
+                description: 'We know lots of factors go into calculating insurance costs...' // Header description
+            }
             
-
-    
-
-
 Render the dom as 
+    
     <ContentCards />
+    
     
