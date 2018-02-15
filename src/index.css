@@ -1,9 +1,4 @@
-html {
-    /* background: url(./images/3.jpeg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
+html {    
     box-sizing: border-box;
     background-color: #484747;
     font-family: sans-serif;   
@@ -22,7 +17,8 @@ float: left;
 .mr15 {
     margin-right: 15px;
 }
-.row {
+
+.content-card-row {
     margin-right: auto;
     margin-left: auto;
 }
@@ -164,14 +160,12 @@ float: left;
 .grid-options-icons {    
     height: 48px;
     opacity: 0;
-    /* background-color: #00BCD4;     */
     position: relative;  
 }
 
 .grid-options-icons-bottom {
     height: 48px;
-    opacity: 0;
-    /* background-color: #00BCD4; */
+    opacity: 0;    
     position: absolute;
     bottom: 0;
 }
@@ -183,44 +177,36 @@ float: left;
     z-index: 6;
 }
 
-.edit-icon {
-    background-image: url('/edit.png');
+.grid-options-icons .icon {
     width: 16px;
-    height: 16px;   
-    position: relative;
+    height: 16px;      
     margin: 15px;
     float: right;
     cursor: pointer;
+}
+
+.grid-options-icons-bottom .icon {
+    width: 16px;
+    height: 16px;      
+    margin: 15px;
+    float: right;
+    cursor: pointer;
+}
+
+.edit-icon {
+    background-image: url('images/edit.png');    
 }
 
 .print-icon {
-    background-image: url('/printer.png');
-    width: 16px;
-    height: 16px;   
-    position: relative;
-    margin: 15px;
-    float: right;
-    cursor: pointer;
+    background-image: url('images/printer.png');    
 }
 
 .copy-icon {
-    background-image: url('/copy.png');
-    width: 16px;
-    height: 16px;   
-    position: relative;
-    margin: 15px;
-    float: right;
-    cursor: pointer;
+    background-image: url('images/copy.png');
 }
 
 .delete-icon {
-    background-image: url('/delete.png');
-    width: 16px;
-    height: 16px;   
-    position: relative;
-    margin: 15px;
-    float: right;
-    cursor: pointer;
+    background-image: url('images/delete.png');    
 }
 
 .grid-box:hover .grid-options-icons {

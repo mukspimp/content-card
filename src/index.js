@@ -52,7 +52,7 @@ class CardHeader extends React.Component {
 class EditorOption extends React.Component {
     render() {       
         return (
-            <div className={this.props.value}></div>
+            <div className={'icon '+this.props.value} title={this.props.title}></div>
         );       
     }
 }
@@ -71,16 +71,16 @@ class Editor extends React.Component {
             <div className="grid-options">
                 <div className={positionClass}>
                     { isDelete === true &&
-                        <EditorOption value='delete-icon' />
+                        <EditorOption value='delete-icon' title="Delete" />
                     }
                     { isPrint === true &&
-                        <EditorOption value="print-icon" />
+                        <EditorOption value="print-icon" title="Print" />
                     }
                     { isEdit === true &&
-                        <EditorOption value="edit-icon" />
+                        <EditorOption value="edit-icon" title="Edit" />
                     }
                     { isCopy === true &&
-                        <EditorOption value="copy-icon" />
+                        <EditorOption value="copy-icon" title="Copy" />
                     }
                 </div>
             </div>
@@ -109,7 +109,7 @@ class ContentCards extends React.Component {
         super(props);
         this.state = {
             cards: [{
-                backgroundImg: '/insurance.jpeg',
+                backgroundImg: 'images/insurance.jpeg',
                 editorOptions: {
                     position: 'bottom',
                     copy: true,
@@ -122,13 +122,13 @@ class ContentCards extends React.Component {
                     position: 'top',
                 },
                 headerData: {
-                    icon: '/car.png',
+                    icon: 'images/car.png',
                     title: 'Car insurance',
                     description: 'We know lots of factors go into calculating insurance costs...'
                 }
             },
             {
-                backgroundImg: '/self-drive.jpeg',
+                backgroundImg: 'images/self-drive.jpeg',
                 editorOptions: {
                     position: 'bottom',
                     copy: true,
@@ -141,13 +141,13 @@ class ContentCards extends React.Component {
                     position: 'top',
                 },
                 headerData: {
-                    icon: 'free-delivery.png',
+                    icon: 'images/free-delivery.png',
                     title: 'Self-driving vehicles are here',
                     description: 'Fully self-driving vehicles can transform the way we get around...'
                 }
             },
             {
-                backgroundImg: '/advertise.jpeg',
+                backgroundImg: 'images/advertise.jpeg',
                 editorOptions: {
                     position: 'top',
                     copy: true,
@@ -160,13 +160,13 @@ class ContentCards extends React.Component {
                     position: 'bottom',
                 },
                 headerData: {
-                    icon: 'bicycle.png',
+                    icon: 'images/bicycle.png',
                     title: 'A cost-effective advertising',
                     description: 'Many businesses are now realizing the potentials of advertising...'
                 }
             },
             {
-                backgroundImg: '/com-truck.jpeg',
+                backgroundImg: 'images/com-truck.jpeg',
                 editorOptions: {
                     position: 'top',
                     copy: true,
@@ -179,7 +179,7 @@ class ContentCards extends React.Component {
                     position: 'bottom',
                 },
                 headerData: {
-                    icon: 'cargo-truck.png',
+                    icon: 'images/cargo-truck.png',
                     title: 'Commerical Vehical Hiring',
                     description: 'Online commercial vehicle hiring portal based on bidding system...'
                 }
