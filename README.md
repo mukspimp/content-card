@@ -1,6 +1,6 @@
 # React Content Card Component
 
-## Create the cards array as below
+## Create the cards array
 
     cards: [{
         backgroundImg: 'images/insurance.jpeg',
