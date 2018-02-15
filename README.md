@@ -1,6 +1,6 @@
-#React Content Card Component
+# React Content Card Component
 
-Createthe cards array as
+## Create the cards array as below
 
     cards: [{
         backgroundImg: 'images/insurance.jpeg',
@@ -22,7 +22,7 @@ Createthe cards array as
         }
     }];
 
-Cards argument details below
+## Cards argument details below
    
    1. Card background image
         
@@ -66,7 +66,7 @@ Cards argument details below
                 description: 'We know lots of factors go into calculating insurance costs...' // Header description
             }
             
-Render the dom as 
+## Render the dom as 
     
     <ContentCards />
     
