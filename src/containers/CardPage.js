@@ -90,9 +90,9 @@ class CardPage extends React.Component {
     };
 
     deleteCard(id) {
-        let currentCards = this.state.cards;
-        currentCards.splice(id-1, 1);
-        console.log(currentCards);
+        let currentCards = this.state.cards.filter(currentCard => {
+            return currentCard.id !== id;
+        });        
         this.setState({
             cards: currentCards
         });
