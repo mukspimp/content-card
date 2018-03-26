@@ -4,23 +4,33 @@ import HeaderIcon from './HeaderIcon';
 import HeaderTitle from './HeaderTitle';
 import HeaderDescription from './HeaderDescription';
 
-class CardHeader extends React.Component {
-    render() {
-        let headerGridClass = 'grid-header';
-        if(this.props.headerOption.position === 'top') {
-            headerGridClass = 'grid-header-top';
-        } 
+import PropTypes from 'prop-types';
 
-        return (
-            <div className={headerGridClass}>
-                <HeaderIcon icon={this.props.header.icon}  />
-                <div>
-                    <HeaderTitle title={this.props.header.title} />
-                    <HeaderDescription description={this.props.header.description} />
-                </div>
+const CardHeader = (props) => {
+    let headerGridClass = 'grid-header';
+    if(props.headerOption.position === 'top') {
+        headerGridClass = 'grid-header-top';
+    } 
+
+    return (
+        <div className={headerGridClass}>
+            <HeaderIcon icon={props.header.icon}  />
+            <div>
+                <HeaderTitle title={props.header.title} />
+                <HeaderDescription description={props.header.description} />
             </div>
-        );
-    };
+        </div>
+    );
+}
+
+CardHeader.propTypes = {
+    headerOption: PropTypes.shape({
+        position: PropTypes.string
+    }),
+    header: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.description
+    })
 }
 
 export default CardHeader;

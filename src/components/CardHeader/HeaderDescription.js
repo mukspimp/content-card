@@ -1,13 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class HeaderDescription extends React.Component {
-    render() {
-        return (
-            <div className="grid-desc">
-                {this.props.description}
-            </div>
-        );
-    }
+const HeaderDescription = (props) => {
+    return (
+        <div className="grid-desc">
+            {props.description}
+        </div>
+    );
 }
+
+HeaderDescription.propTypes = {
+    description: PropTypes.string.isRequired
+};
 
 export default HeaderDescription;

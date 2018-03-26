@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class HeaderTitle extends React.Component {
-    render() {
-        return (
-            <div className="grid-title">{this.props.title}</div>
-        );
-    }
+const HeaderTitle = (props) => {
+    return (<div className="grid-title">{props.title}</div>);
+}
+
+HeaderTitle.propTypes = {
+    title: PropTypes.string.isRequired
 }
 
 export default HeaderTitle;

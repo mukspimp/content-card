@@ -1,11 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class EditorOption extends React.Component {
-    render() {       
+const EditorOption = (props) => {    
         return (
-            <div className={'icon '+this.props.value} title={this.props.title}></div>
+            <div className={'icon '+props.value} title={props.title}></div>
         );       
-    }
+}
+
+EditorOption.propTypes = {
+    value: PropTypes.string,
+    title: PropTypes.string
 }
 
 export default EditorOption;

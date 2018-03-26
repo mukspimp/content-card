@@ -1,12 +1,13 @@
 import React from 'react';
 
-import ContentCard from '../../components/ContentCard';
+import ContentCard from '../components/ContentCard';
 
-class ContentCards extends React.Component {
+class CardPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             cards: [{
+                id: 1,
                 backgroundImg: 'images/insurance.jpeg',
                 editorOptions: {
                     position: 'bottom',
@@ -26,6 +27,7 @@ class ContentCards extends React.Component {
                 }
             },
             {
+                id: 2,
                 backgroundImg: 'images/self-drive.jpeg',
                 editorOptions: {
                     position: 'bottom',
@@ -45,6 +47,7 @@ class ContentCards extends React.Component {
                 }
             },
             {
+                id: 3,
                 backgroundImg: 'images/advertise.jpeg',
                 editorOptions: {
                     position: 'top',
@@ -64,6 +67,7 @@ class ContentCards extends React.Component {
                 }
             },
             {
+                id: 4,
                 backgroundImg: 'images/com-truck.jpeg',
                 editorOptions: {
                     position: 'top',
@@ -84,20 +88,29 @@ class ContentCards extends React.Component {
             }]
         }
     };
-    
+
+    deleteCard(id) {
+        let currentCards = this.state.cards;
+        currentCards.splice(id-1, 1);
+        console.log(currentCards);
+        this.setState({
+            cards: currentCards
+        });
+    }
+
+    printCard(id) {
+        window.print();
+    }
+
     render() {
         return (
             <div className="row">
-                <div className="col-grid">
-                    {
-                        this.state.cards.map(function(card) {
-                            return <ContentCard card={card} />
-                        })
-                    }                   
+                <div className="col-grid">                                            
+                    <ContentCard cards={this.state.cards} printItem={this.printCard.bind(this)} deleteItem={this.deleteCard.bind(this)}/>                                                               
                 </div>
             </div>        
         );  
     }
 };
 
-export default ContentCards;
+export default CardPage;

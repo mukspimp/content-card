@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import ContentCards from './containers/ContentCards';
+import CardPage from './containers/CardPage';
 
 ReactDOM.render(
-   <ContentCards />,
+   <CardPage />,
     document.getElementById('root')
 );
 
