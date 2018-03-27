@@ -13,7 +13,7 @@ const ContentCard = (props) => {
                     <img src={process.env.PUBLIC_URL + card.backgroundImg} />
                     <div className="abs-content">
                     </div>
-                    <Editor deleteItem={props.deleteItem} id={card.id} printItem={props.printItem}  editOptions={card.editorOptions} />
+                    <Editor editItem={props.editItem} deleteItem={props.deleteItem} id={card.id} printItem={props.printItem}  editOptions={card.editorOptions} />
                     <CardHeader header={card.headerData} headerOption={card.headerOptions} />
                 </div>
             </div>

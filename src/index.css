@@ -217,6 +217,10 @@ float: left;
     opacity: 1;    
 }
 
+.hide {
+    display: none;
+}
+
 @media only screen and (min-width: 325px) {
     .col-grid .grid-item  {
         width: 100%;

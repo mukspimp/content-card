@@ -1,10 +1,13 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import ContentCard from '../components/ContentCard';
+import PrintCard from '../components/PrintCard';
+import EditCard from '../components/EditCard';
 
 class CardPage extends React.Component {
     constructor(props) {
-        super(props);
+        super(props);        
         this.state = {
             cards: [{
                 id: 1,
@@ -87,28 +90,66 @@ class CardPage extends React.Component {
                 }
             }]
         }
+        this.state.isOpen = true;
     };
 
+    toggleModal() {
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
+    }
+
+    editCard(id) {        
+        console.log(id);
+        let editCard = this.state.cards.find(card => {
+            if (card.id === id) {
+                return card;
+            }            
+        });        
+        ReactDOM.render(<EditCard card={editCard} show={this.state.isOpen}
+                onClose={this.toggleModal}>
+                <h3>Edit Card</h3>
+            </EditCard>, document.getElementById('editCardDiv'));
+    }
+
     deleteCard(id) {
-        let currentCards = this.state.cards;
-        currentCards.splice(id-1, 1);
-        console.log(currentCards);
+        let currentCards = this.state.cards.filter(currentCard => {
+            return currentCard.id !== id;
+        });        
         this.setState({
             cards: currentCards
         });
     }
 
     printCard(id) {
-        window.print();
+        const printCard = this.state.cards.find(card => {
+            if(card.id === id) {
+                return card;
+            }            
+        });
+        console.log(printCard); 
+        ReactDOM.render(<PrintCard card={printCard} />, document.getElementById('printCardDiv'));
+        var content = document.getElementById("printCardDiv");
+        var pri = document.getElementById("ifmcontentstoprint").contentWindow;
+        pri.document.open();
+        pri.document.write(content.innerHTML);
+        setTimeout(() => {
+            pri.document.close();
+            pri.focus();
+            pri.print();
+        }, 500);               
     }
-
+    
     render() {
         return (
-            <div className="row">
-                <div className="col-grid">                                            
-                    <ContentCard cards={this.state.cards} printItem={this.printCard.bind(this)} deleteItem={this.deleteCard.bind(this)}/>                                                               
-                </div>
-            </div>        
+            <div>
+                <div className="row">
+                    <div className="col-grid">                                            
+                    <ContentCard cards={this.state.cards} editItem={this.editCard.bind(this)} printItem={this.printCard.bind(this)} deleteItem={this.deleteCard.bind(this)}/>   </div>
+                </div>            
+                <div id="editCardDiv"></div>
+                <div id="printCardDiv"></div>                                     
+            </div>
         );  
     }
 };

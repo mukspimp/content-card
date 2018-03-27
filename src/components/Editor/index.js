@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//import EditorOption from './EditorOption';
 
 const Editor = (props) => {    
     let isDelete = props.editOptions.delete;
@@ -16,20 +15,16 @@ const Editor = (props) => {
         <div className="grid-options">
             <div className={positionClass}>
                 { isDelete === true &&
-                    <div className='icon delete-icon' title='Delete' onClick={()=>props.deleteItem(props.id)}></div>
-                    //<EditorOption value='delete-icon' title="Delete"  />
+                    <div className='icon delete-icon' title='Delete' onClick={()=>props.deleteItem(props.id)}></div>                    
                 }
                 { isPrint === true &&
-                    <div className='icon print-icon' title='Print' onClick={()=>props.printItem(props.id)}></div>
-                    // <EditorOption value="print-icon" title="Print" />
+                    <div className='icon print-icon' title='Print' onClick={()=>props.printItem(props.id)}></div>                    
                 }
                 { isEdit === true &&
-                    <div className='icon edit-icon' title='Edit' ></div>
-                    // <EditorOption value="edit-icon" title="Edit" />
+                    <div className='icon edit-icon' title='Edit' onClick={()=>props.editItem(props.id)}></div>
                 }
                 { isCopy === true &&
-                    <div className='icon copy-icon' title='Copy' ></div>
-                    // <EditorOption value="copy-icon" title="Copy" />
+                    <div className='icon copy-icon' title='Copy' ></div>                    
                 }
             </div>
         </div>
