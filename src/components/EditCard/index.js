@@ -1,50 +1,57 @@
 import React from 'react';
 
 class EditCard extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: '',
+            title: '',
+            description: ''
+        }
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    }
 
-    render() {
+    handleTitleChange(event) {        
+        this.setState({title: event.target.value});    
+    }
+
+    handleDescriptionChange(event) {
+        this.setState({description: event.target.value});        
+    }   
+
+    componentDidMount() {
+        this.setState({id: this.props.card.id});
+        this.setState({title: this.props.card.headerData.title});
+        this.setState({description: this.props.card.headerData.description});
+    }
+    
+   render() {
         if(!this.props.show) {
             return null;
-        }
-        console.log("--------->>>>", this.props);
-        const backdropStyle = {
-            position: 'fixed',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            backgroundColor: 'rgba(0,0,0,0.3)',
-            padding: 50,
-            zIndex: 999
-        };
-    
-        const modalStyle = {
-            backgroundColor: '#fff',
-            borderRadius: 5,
-            maxWidth: 500,
-            minHeight: 300,
-            margin: '0 auto',
-            padding: 30
-        };
-      
+        }              
+       if(!this.props.show) {
+           return;
+       }
         return ( 
-            <div className="backdrop" style={backdropStyle}>
-                <div className="modal" style={modalStyle}>
-                    {this.props.children}
-                    <div>
-                        <input type="text" name="title" value={this.props.card.headerData.title}/>                        
-                    </div>
-                    <div>
-                        <input type="text" name="description" value={this.props.card.headerData.description}/>                        
-                    </div>
-                    <div>
-                        <input type="button" value="Update" onClick={this.focusInput} />
-                    </div>
-                    <div className="footer">
-                        <button onClick={this.props.onClose}>
-                        Close
-                        </button>
-                    </div>
+            <div className="model">                                
+                <div className="modelBody">  
+                    <form className="edit-form">
+                        <h3>{this.props.children}</h3>                            
+                        <fieldset>
+                            <input placeholder="Card Title" type="text" value={this.state.title} onChange={this.handleTitleChange}/>
+                        </fieldset>                                              
+                        <fieldset>
+                            <textarea placeholder="Card Description" value={this.state.description} onChange={this.handleDescriptionChange}></textarea>
+                        </fieldset>
+                        <fieldset>
+                            <button name="update" type="button" id="card-update"  onClick={()=>this.props.updateCard(this.state)}>Update</button>
+                        </fieldset>  
+                        <fieldset>                      
+                            <button name="close" type="button" onClick={()=>this.props.onClose()}> Close </button>                      
+                        </fieldset>                                             
+                    </form>                    
                 </div>
             </div>            
         );
