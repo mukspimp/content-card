@@ -156,8 +156,7 @@ class CardPage extends React.Component {
             if(card.id === id) {
                 return card;
             }            
-        });
-        console.log(printCard); 
+        });       
         ReactDOM.render(<PrintCard card={printCard} />, document.getElementById('printCardDiv'));
         var content = document.getElementById("printCardDiv");
         var pri = document.getElementById("ifmcontentstoprint").contentWindow;
