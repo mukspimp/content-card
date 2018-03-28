@@ -91,23 +91,53 @@ class CardPage extends React.Component {
             }]
         }
         this.state.isOpen = true;
+        this.state.editCard = {};
     };
+    
+    handleTitleChange(title) {            
+        let updatedCard = {...this.state.editCard};
+        updatedCard.headerData.title = title;
+        this.setState({ editCard : updatedCard});
+    }
 
+    handleDescriptionChange(description) {        
+        let updatedCard = {...this.state.editCard};
+        updatedCard.headerData.description = description;
+        this.setState({ editCard : updatedCard});
+    }
+    
+    updateCard(updatedCard) {
+        var updaedCards = []; 
+        this.state.cards.map(card => {
+            if(card.id === updatedCard.id) {
+                card.headerData.title = updatedCard.title;
+                card.headerData.description = updatedCard.description;
+            }
+            updaedCards.push(card);
+        });
+        this.setState({cards: updaedCards });
+        this.setState({ isOpen : false });       
+    } 
+    
     toggleModal() {
         this.setState({
           isOpen: !this.state.isOpen
         });
     }
 
-    editCard(id) {        
-        console.log(id);
-        let editCard = this.state.cards.find(card => {
-            if (card.id === id) {
-                return card;
-            }            
-        });        
-        ReactDOM.render(<EditCard card={editCard} show={this.state.isOpen}
-                onClose={this.toggleModal}>
+   editCard(id) {        
+        if(this.state.editCard.hasOwnProperty(id) && this.state.editCard.id === id) {           
+        } else {
+            var editCard = this.state.cards.find(card => {
+                if (card.id === id) {
+                    return card;
+                }            
+            }); 
+            this.setState({editCard: editCard});  
+        }
+        // this.setState({editCard: editCard});
+        ReactDOM.render(<EditCard card={editCard} show={this.state.isOpen} updateCard={this.updateCard.bind(this)}
+                onClose={this.toggleModal.bind(this)} handleDescriptionChange={this.handleDescriptionChange.bind(this)} handleTitleChange={this.handleTitleChange.bind(this)} >
                 <h3>Edit Card</h3>
             </EditCard>, document.getElementById('editCardDiv'));
     }
